@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crossword clue submission</title>
+</head>
+<body>
+<form action="./api/clues" method="post" class="form-example">
+    <div class="form-field">
+        <label for="clue-text">Clue:</label>
+        <input type="text" id="clue-text" required>
+    </div>
+    <div class="form-field">
+        <label for="clue-answer">Answer:</label>
+        <input type="text" id="clue-answer" required>
+    </div>
+    <div class="form-submit">
+        <input type="submit" value="Submit clue">
+    </div>
+</form>
+
+</body>
+</html>
