@@ -19,4 +19,7 @@ public class Crossword {
 
     @OneToMany
     private List<ClueUsage> clueUsages;
+
+    @Column
+    private boolean ready;
 }
