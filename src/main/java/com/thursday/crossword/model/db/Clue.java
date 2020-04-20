@@ -1,6 +1,6 @@
 package com.thursday.crossword.model.db;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -20,6 +20,9 @@ public class Clue {
     @Column
     @NotNull
     private String answer;
+
+    @OneToMany
+    private List<ClueUsage> usages;
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
