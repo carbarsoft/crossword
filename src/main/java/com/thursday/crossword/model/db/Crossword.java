@@ -17,7 +17,8 @@ public class Crossword {
     @NotNull
     private int size;
 
-    @OneToMany
+    @Column
+    @OneToMany(mappedBy = "crossword")
     private List<ClueUsage> clueUsages;
 
     @Column

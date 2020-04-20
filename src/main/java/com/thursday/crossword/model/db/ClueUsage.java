@@ -29,8 +29,10 @@ public class ClueUsage {
     private int startingY;
 
     @ManyToOne
+    @JoinColumn(name="clue_id")
     private Clue clue;
 
     @ManyToOne
+    @JoinColumn(name="crossword_id")
     private Crossword crossword;
 }

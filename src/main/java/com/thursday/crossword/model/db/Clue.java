@@ -21,7 +21,8 @@ public class Clue {
     @NotNull
     private String answer;
 
-    @OneToMany
+    @Column
+    @OneToMany(mappedBy = "clue")
     private List<ClueUsage> usages;
 
     public int getId() { return id; }
