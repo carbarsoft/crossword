@@ -3,10 +3,11 @@ package com.thursday.crossword.controller;
 import com.thursday.crossword.model.db.Clue;
 import com.thursday.crossword.repository.CluesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("api/clues")
+@Controller
+@RequestMapping("clues")
 public class ClueController {
 
     @Autowired
