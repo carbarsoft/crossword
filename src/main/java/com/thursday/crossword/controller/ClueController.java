@@ -21,10 +21,10 @@ public class ClueController {
         return cluesRepository.findAll();
     }
 
-    @PostMapping
-    public @ResponseBody Clue postClue(String clueText, String answer) {
+    @PostMapping(consumes = "application/x-www-form-urlencoded")
+    public @ResponseBody Clue postClue(String text, String answer) {
         Clue clue = new Clue();
-        clue.setText(clueText);
+        clue.setText(text);
         clue.setAnswer(answer);
         cluesRepository.save(clue);
         return clue;
