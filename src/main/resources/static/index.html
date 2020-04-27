@@ -5,14 +5,14 @@
     <title>Crossword clue submission</title>
 </head>
 <body>
-<form action="./api/clues" method="post" class="form-example">
+<form action="/clues" method="post" class="form-example">
     <div class="form-field">
-        <label for="clue-text">Clue:</label>
-        <input type="text" id="clue-text" required>
+        <label for="text">Clue:</label>
+        <input type="text" id="text" required>
     </div>
     <div class="form-field">
-        <label for="clue-answer">Answer:</label>
-        <input type="text" id="clue-answer" required>
+        <label for="answer">Answer:</label>
+        <input type="text" id="answer" required>
     </div>
     <div class="form-submit">
         <input type="submit" value="Submit clue">

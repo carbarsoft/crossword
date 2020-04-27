@@ -3,10 +3,11 @@ package com.thursday.crossword.controller;
 import com.thursday.crossword.model.db.Clue;
 import com.thursday.crossword.repository.CluesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("api/clues")
+@Controller
+@RequestMapping("clues")
 public class ClueController {
 
     @Autowired
@@ -22,9 +23,9 @@ public class ClueController {
     }
 
     @PostMapping
-    public @ResponseBody Clue postClue(String clueText, String answer) {
+    public @ResponseBody Clue postClue(@RequestParam String text, @RequestParam String answer) {
         Clue clue = new Clue();
-        clue.setText(clueText);
+        clue.setText(text);
         clue.setAnswer(answer);
         cluesRepository.save(clue);
         return clue;
