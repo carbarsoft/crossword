@@ -3,10 +3,11 @@ package com.thursday.crossword.controller;
 import com.thursday.crossword.model.db.Crossword;
 import com.thursday.crossword.repository.CrosswordsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("api/crosswords")
+@Controller
+@RequestMapping("crosswords")
 public class CrosswordController {
 
     @Autowired
@@ -21,7 +22,7 @@ public class CrosswordController {
         return crosswordsRepository.findAll();
     }
 
-    @PostMapping
+    @PostMapping(consumes = "application/x-www-form-urlencoded")
     public @ResponseBody Crossword postCrossword(int size) {
         Crossword crossword = new Crossword();
         crossword.setSize(size);
