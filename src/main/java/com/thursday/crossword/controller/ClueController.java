@@ -35,13 +35,12 @@ public class ClueController {
 
     @GetMapping("/search")
     public @ResponseBody List<Clue> searchAnswers(@RequestParam String searchString) {
-        searchString.toLowerCase();
-        String regex = convertToRegex(searchString);
-        List<Clue> results = cluesRepository.answerMatcher(regex);
-        return results;
+        String lowercase = searchString.toLowerCase();
+        String regex = convertToRegex(lowercase);
+        return cluesRepository.answerMatcher(regex);
     }
 
     private String convertToRegex(String searchString) {
-        return "%";
+        return "a%";
     }
 }
