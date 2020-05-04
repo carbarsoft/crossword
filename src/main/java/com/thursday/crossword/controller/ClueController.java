@@ -41,6 +41,6 @@ public class ClueController {
     }
 
     private String convertToRegex(String searchString) {
-        return "a%";
+        return searchString.replaceAll("[^a-z]", "_");
     }
 }
