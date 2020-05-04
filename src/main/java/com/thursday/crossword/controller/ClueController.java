@@ -1,6 +1,6 @@
 package com.thursday.crossword.controller;
 
-import com.thursday.crossword.model.db.Clue;
+import com.thursday.crossword.model.Clue;
 import com.thursday.crossword.repository.CluesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

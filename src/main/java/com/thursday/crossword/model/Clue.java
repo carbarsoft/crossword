@@ -1,4 +1,4 @@
-package com.thursday.crossword.model.db;
+package com.thursday.crossword.model;
 
 import java.util.List;
 

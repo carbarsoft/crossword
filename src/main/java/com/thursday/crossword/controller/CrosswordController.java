@@ -1,6 +1,7 @@
 package com.thursday.crossword.controller;
 
-import com.thursday.crossword.model.db.Crossword;
+import com.thursday.crossword.model.ClueUsage;
+import com.thursday.crossword.model.Crossword;
 import com.thursday.crossword.repository.CrosswordsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,7 @@ public class CrosswordController {
     }
 
     @GetMapping("/edit")
-    public String editCrossword(@RequestParam(name="id", required=true, defaultValue="1") String id, Model model) {
+    public String editCrossword(@RequestParam(name="id") String id, Model model) {
         //TODO: catch error if crossword isn't found
         Crossword crossword = crosswordsRepository.findById(Integer.parseInt(id)).get();
         model.addAttribute("id", id);
@@ -33,7 +34,7 @@ public class CrosswordController {
     }
 
     @PostMapping(consumes = "application/x-www-form-urlencoded")
-    public @ResponseBody Crossword postCrossword(int size) {
+    public @ResponseBody Crossword newCrossword(int size) {
         Crossword crossword = new Crossword();
         crossword.setSize(size);
         crosswordsRepository.save(crossword);

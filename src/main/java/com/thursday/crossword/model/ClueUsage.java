@@ -1,4 +1,4 @@
-package com.thursday.crossword.model.db;
+package com.thursday.crossword.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

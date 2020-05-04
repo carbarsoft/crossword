@@ -1,10 +1,7 @@
 package com.thursday.crossword;
 
-import com.thursday.crossword.model.db.Clue;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 
 @SpringBootApplication
 public class CrosswordApplication {
