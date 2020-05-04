@@ -1,5 +1,7 @@
 package com.thursday.crossword.model;
 
+import com.thursday.crossword.viewModel.CrosswordViewModel;
+
 import java.util.List;
 
 import javax.persistence.*;
@@ -28,4 +30,6 @@ public class Crossword {
 
     public void setSize(int size) { this.size = size; }
     public int getSize() { return size; }
+
+    public List<ClueUsage> getClueUsages() { return clueUsages; }
 }

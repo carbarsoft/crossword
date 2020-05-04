@@ -2,7 +2,9 @@ package com.thursday.crossword.controller;
 
 import com.thursday.crossword.model.ClueUsage;
 import com.thursday.crossword.model.Crossword;
+import com.thursday.crossword.repository.ClueUsagesRepository;
 import com.thursday.crossword.repository.CrosswordsRepository;
+import com.thursday.crossword.viewModel.CrosswordViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,9 @@ public class CrosswordController {
 
     @Autowired
     private CrosswordsRepository crosswordsRepository;
+
+    @Autowired
+    private ClueUsagesRepository clueUsagesRepository;
 
     CrosswordController(CrosswordsRepository crosswordsRepository) {
         this.crosswordsRepository = crosswordsRepository;
@@ -40,5 +45,12 @@ public class CrosswordController {
         crosswordsRepository.save(crossword);
         //TODO: send us to editing this crossword
         return crossword;
+    }
+
+    @PostMapping(consumes = "application/json")
+    public @ResponseBody
+    CrosswordViewModel addToCrossword(ClueUsage clueUsage) {
+        clueUsagesRepository.save(clueUsage);
+        return new CrosswordViewModel(clueUsage.getCrossword());
     }
 }
