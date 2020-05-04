@@ -23,4 +23,9 @@ public class Crossword {
 
     @Column
     private boolean ready;
+
+    public int getId() { return id; }
+
+    public void setSize(int size) { this.size = size; }
+    public int getSize() { return size; }
 }
