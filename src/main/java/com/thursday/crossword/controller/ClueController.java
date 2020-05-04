@@ -4,6 +4,7 @@ import com.thursday.crossword.model.db.Clue;
 import com.thursday.crossword.repository.CluesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,12 +26,13 @@ public class ClueController {
     }
 
     @PostMapping(consumes = "application/x-www-form-urlencoded")
-    public @ResponseBody Clue postClue(String text, String answer) {
+    public String postClue(String text, String answer, Model model) {
         Clue clue = new Clue();
         clue.setText(text);
         clue.setAnswer(answer.toLowerCase());
         cluesRepository.save(clue);
-        return clue;
+        model.addAttribute("message", "Clue submitted successfully!");
+        return "submitClue";
     }
 
     @GetMapping("/search")
@@ -38,6 +40,12 @@ public class ClueController {
         String lowercase = searchString.toLowerCase();
         String regex = convertToRegex(lowercase);
         return cluesRepository.answerMatcher(regex);
+    }
+
+    @GetMapping("/submit")
+    public String submitCluePage(Model model) {
+        model.addAttribute("message","Submit a clue here!");
+        return "submitClue";
     }
 
     private String convertToRegex(String searchString) {

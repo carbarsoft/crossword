@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Crossword clue submission</title>
+</head>
+<body>
+<div th:text="${message}"></div>
+<form action="/clues" method="post" class="form-example">
+    <div class="form-field">
+        <label for="text">Clue:</label>
+        <input type="text" id="text" name="text" required>
+    </div>
+    <div class="form-field">
+        <label for="answer">Answer:</label>
+        <input type="text" id="answer" name="answer" required>
+    </div>
+    <div class="form-submit">
+        <input type="submit" value="Submit clue">
+    </div>
+</form>
+
+</body>
+</html>
